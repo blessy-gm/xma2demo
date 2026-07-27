@@ -1,0 +1,123 @@
+/* hero-header -- two-column hero: text (left) + 3-image grid (right) */
+
+/* Values extracted from source computed styles (wknd-trendsetters.site) */
+
+.hero-header {
+  color: var(--text-color);
+}
+
+/* --- Layout (mobile-first: single column stack) --- */
+.hero-header > div {
+  display: block;
+}
+
+.hero-header > div > div {
+  display: block;
+}
+
+/* --- Text column --- */
+.hero-header h1 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em; /* source -1.12px on 56px */
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.hero-header p {
+  margin: 24px 0 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m); /* 18px */
+  line-height: 1.6; /* source 28.8px */
+  color: var(--text-color);
+}
+
+/* --- Image column: 2-col grid, gap 8px, rounded 3/2 images ---
+   EDS wraps the bare pictures in a <p>; target that group. */
+.hero-header > div:first-child p,
+.hero-header > div:first-child > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 0;
+}
+
+.hero-header picture {
+  display: block;
+  line-height: 0;
+}
+
+.hero-header img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* --- CTA buttons ---
+   Source: pill, 2px solid black, 14px, weight 600, Instrument Sans, no uppercase,
+   padding 12px 24px. First link = primary (black bg/white), second = secondary (white bg/black).
+   EDS did not add .button classes here, so style the raw links in their paragraphs. */
+.hero-header > div:last-child p:has(> a:only-child) {
+  display: inline-block;
+  vertical-align: top;
+  margin: 32px 16px 0 0;
+}
+
+.hero-header p > a:only-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 12px 24px;
+  border: 2px solid var(--text-color);
+  border-radius: 9999px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs); /* 14px */
+  font-weight: 600;
+  line-height: 1.25;
+  text-transform: none;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* First CTA = primary (black) */
+.hero-header p:has(> a:only-child) > a {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+
+/* Second CTA = secondary (outline) */
+.hero-header p:has(> a:only-child) ~ p:has(> a:only-child) > a {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* --- Desktop: two equal columns side by side --- */
+@media (width >= 900px) {
+  .hero-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  /* Source layout is text-left / images-right; the imported order is
+     images-first, so place the text cell into the left column. */
+  .hero-header > div:first-child {
+    order: 2;
+  }
+
+  .hero-header > div:last-child {
+    order: 1;
+  }
+
+  .hero-header h1 {
+    font-size: 56px;
+  }
+}

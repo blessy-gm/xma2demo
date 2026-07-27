@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-header",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-07-27T21:57:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://wknd-trendsetters.site/",
+    "originPage": "WKND Trendsetters home page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + subheading + 2 CTAs + image stack",
+    "buttonCount": 2,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "page intro banners on light backgrounds",
+      "editorial landing page headers",
+      "text-forward hero sections without a full-bleed background image"
+    ],
+    "notSuitableFor": [
+      "full-bleed background-image CTAs",
+      "dark overlay promotional banners"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-27T21:57:00.000Z"
+  }
+}
